@@ -335,9 +335,11 @@ ul {
 }
 
 .movie-poster img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 2/3;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
@@ -435,46 +437,71 @@ ul {
   font-weight: 500;
 }
 
-/* responsive */
+/* responsive - Fixed mobile movie detail styles */
 @media (max-width: 768px) {
   .movie-backdrop {
-    height: 350px;
+    height: 500px; /* Increased height to prevent cutting */
+    min-height: 500px;
   }
   
   .movie-info-overlay {
     flex-direction: column;
     text-align: center;
-    padding: 25px 20px;
-    justify-content: center;
+    padding: 30px 20px;
+    justify-content: flex-start; /* Changed from center to flex-start */
+    align-items: center;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+  
+  .movie-poster {
+    width: 180px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
   }
   
   .movie-poster img {
-    width: 160px;
-    height: 240px;
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    max-width: 180px;
+  }
+  
+  .movie-details {
+    width: 100%;
+    max-width: 100%;
   }
   
   .movie-details h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
+    line-height: 1.2;
   }
   
   .movie-meta {
     justify-content: center;
+    font-size: 0.85rem;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .movie-meta span {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .overview {
+    width: 100%;
+  }
+
+  .overview h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .overview p {
     font-size: 0.9rem;
-    gap: 12px;
-  }
-
-  .overview-section {
-    padding: 30px 20px;
-  }
-
-  .overview-section h3 {
-    font-size: 1.5rem;
-  }
-
-  .overview-section p {
-    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 100%;
+    text-align: left;
   }
 
   .cast-section {
@@ -482,12 +509,13 @@ ul {
   }
 
   .cast-section h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .movie-detail {
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
   }
 
   .movie-detail img {
@@ -496,15 +524,16 @@ ul {
   }
 
   .cast-card {
-    width: 85px;
+    width: 100px;
   }
 
   .cast-card img {
-    height: 110px;
+    height: 130px;
   }
 
   .cast-list {
     gap: 12px;
+    justify-content: center;
   }
 
   .search-form {
@@ -518,45 +547,54 @@ ul {
 
 @media (max-width: 480px) {
   .movie-backdrop {
-    height: 280px;
+    height: 550px; /* Further increased for smaller screens */
+    min-height: 550px;
   }
   
   .movie-info-overlay {
-    padding: 20px 15px;
+    padding: 25px 15px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .movie-poster {
+    width: 160px;
+    margin-bottom: 15px;
   }
   
   .movie-poster img {
-    width: 130px;
-    height: 195px;
+    max-width: 160px;
   }
   
   .movie-details h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 12px;
+    line-height: 1.3;
   }
   
   .movie-meta {
     gap: 8px;
     font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .movie-meta span {
-    padding: 6px 10px;
+    padding: 5px 10px;
     font-size: 0.8rem;
+    white-space: nowrap;
   }
 
-  .overview-section {
-    padding: 25px 15px;
+  .overview h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 
-  .overview-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-  }
-
-  .overview-section p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+  .overview p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: left;
   }
 
   .cast-section {
@@ -564,24 +602,26 @@ ul {
   }
 
   .cast-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
   }
 
   .cast-card {
-    width: 75px;
+    width: 85px;
   }
 
   .cast-card img {
-    height: 95px;
+    height: 110px;
   }
 
   .cast-card p {
     font-size: 0.75rem;
+    line-height: 1.2;
   }
 
   .cast-list {
     gap: 10px;
+    justify-content: center;
   }
 
   .nav-links {
@@ -590,5 +630,38 @@ ul {
 
   .movie-card img {
     height: 220px;
+  }
+}
+
+/* Additional mobile fixes for very small screens */
+@media (max-width: 360px) {
+  .movie-backdrop {
+    height: 580px;
+    min-height: 580px;
+  }
+
+  .movie-info-overlay {
+    padding: 20px 12px;
+  }
+
+  .movie-poster {
+    width: 140px;
+  }
+
+  .movie-poster img {
+    max-width: 140px;
+  }
+
+  .movie-details h1 {
+    font-size: 1.4rem;
+  }
+
+  .movie-meta span {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .overview p {
+    font-size: 0.8rem;
   }
 }

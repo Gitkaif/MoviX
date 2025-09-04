@@ -97,7 +97,7 @@ ul {
   background-color: #0056b3;
 }
 
-/* Mobile styles */
+/* for mobile menu */
 .hamburger {
   display: none;
   background: none;
@@ -229,7 +229,7 @@ ul {
   background-color: #e68900;
 }
 
-/* movie grid */
+/* movie ka grid */
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -298,7 +298,7 @@ ul {
   font-weight: 500;
 }
 
-/* Updated Movie Detail Styles */
+/* movie detail page*/
 .movie-detail-container {
   margin-top: 0;
 }
@@ -387,7 +387,6 @@ ul {
   color: #333;
 }
 
-/* Old movie detail styles - keep for backward compatibility */
 .movie-detail {
   display: flex;
   flex-wrap: wrap;
@@ -437,10 +436,10 @@ ul {
   font-weight: 500;
 }
 
-/* responsive - Fixed mobile movie detail styles */
+
 @media (max-width: 768px) {
   .movie-backdrop {
-    height: 500px; /* Increased height to prevent cutting */
+    height: 500px;
     min-height: 500px;
   }
   
@@ -448,9 +447,9 @@ ul {
     flex-direction: column;
     text-align: center;
     padding: 30px 20px;
-    justify-content: flex-start; /* Changed from center to flex-start */
+    justify-content: flex-start;
     align-items: center;
-    overflow-y: auto; /* Allow scrolling if content overflows */
+    overflow-y: auto;
   }
   
   .movie-poster {
@@ -547,7 +546,7 @@ ul {
 
 @media (max-width: 480px) {
   .movie-backdrop {
-    height: 550px; /* Further increased for smaller screens */
+    height: 550px;
     min-height: 550px;
   }
   
@@ -633,7 +632,6 @@ ul {
   }
 }
 
-/* Additional mobile fixes for very small screens */
 @media (max-width: 360px) {
   .movie-backdrop {
     height: 580px;

@@ -22,6 +22,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      <span className="brand-icon">🎬</span>
       <h2><Link to="/" className="navbar-title">MoviX</Link></h2>
       
       <div className={`nav-content ${isMenuOpen ? 'show' : ''}`}>

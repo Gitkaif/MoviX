@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -10,7 +9,6 @@ import MovieDetail from "./pages/MovieDetail";
 
 const App = () => {
   return (
-    <AuthProvider>
       <Router>
         <Navbar />
         <div className="container">
@@ -24,7 +22,6 @@ const App = () => {
         </div>
         <Footer />
       </Router>
-    </AuthProvider>
   );
 };
 

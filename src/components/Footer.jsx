@@ -12,7 +12,7 @@ function Footer() {
           <div className="footer-section">
             <div className="footer-brand">
               <span className="brand-icon">🎬</span>
-              <span className="brand-text">MoviX</span>
+              <span className="brand-text">MoviZ</span>
             </div>
             <p className="footer-description">
               Discover your next favorite movie with our comprehensive collection of films, ratings, and reviews.
